@@ -18,5 +18,15 @@
     "configuration"
   ],
   "author": "ted dumitrescu <webdev@cmme.org> (http://cmme.org/tdumitrescu/)",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tdumitrescu/sequelize-tools/issues"
+  },
+  "homepage": "https://github.com/tdumitrescu/sequelize-tools",
+  "devDependencies": {
+    "expect.js": "~0.3.1",
+    "mocha": "~1.17.1",
+    "pg": "~2.11.0",
+    "sequelize": "~1.7.0-beta8"
+  }
 }
