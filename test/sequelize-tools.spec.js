@@ -12,8 +12,8 @@ describe("db", function() {
 
   describe("chooseEnvConfig()", function() {
     it("reads from the config file specified in SEQUELIZE_DB_CONFIG", function() {
-      var dbEnv = db.chooseEnvConfig();
-      expect(dbEnv.test.dbName).to.be("sequelize_tools_test");
+      var dbConfig = db.chooseEnvConfig();
+      expect(dbConfig.dbName).to.be("sequelize_tools_test");
     });
   });
 
