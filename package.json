@@ -1,10 +1,14 @@
 {
   "name": "sequelize-tools",
   "version": "0.0.1",
-  "description": "reduce sequelize boilerplate/config",
+  "description": "Reduce Sequelize boilerplate/config",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "some mocha thing probably"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tdumitrescu/sequelize-tools.git"
   },
   "keywords": [
     "sequelize",
