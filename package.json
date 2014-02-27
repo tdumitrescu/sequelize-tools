@@ -4,7 +4,7 @@
   "description": "Reduce Sequelize boilerplate/config",
   "main": "index.js",
   "scripts": {
-    "test": "some mocha thing probably"
+    "test": "node_modules/.bin/mocha test"
   },
   "repository": {
     "type": "git",
