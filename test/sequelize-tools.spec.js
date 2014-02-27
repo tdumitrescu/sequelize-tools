@@ -17,4 +17,23 @@ describe("db", function() {
     });
   });
 
+  describe("defaultConnection()", function () {
+    it("initializes a DbConnection", function() {
+      var dc = db.defaultConnection();
+      expect(dc.testEnv).to.be(true);
+    });
+
+    it("retains the created object on subsequent calls", function() {
+      var dc1 = db.defaultConnection(),
+          dc2 = db.defaultConnection();
+      expect(dc1).to.be(dc2);
+    });
+  });
+
+  describe("init()", function() {
+    it("calls the given callback after successfully syncing", function(done) {
+      db.init(done);
+    });
+  });
+
 });
