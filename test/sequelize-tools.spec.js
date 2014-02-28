@@ -34,6 +34,13 @@ describe("db", function() {
     it("calls the given callback after successfully syncing", function(done) {
       db.init(done);
     });
+
+    it("waits until authenticated to sync", function(done) {
+      db.init(function() {
+        expect(db.defaultConnection().authenticated).to.be(true);
+        done();
+      });
+    });
   });
 
 });
