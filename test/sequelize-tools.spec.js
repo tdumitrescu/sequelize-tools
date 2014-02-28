@@ -10,6 +10,19 @@ var expect = require("expect.js"),
 
 describe("db", function() {
 
+  describe("chooseEnv()", function() {
+    afterEach(function() {
+      process.env.NODE_ENV = "test";
+      process.env.npm_lifecycle_event = "test";
+    });
+
+    it("defaults to 'development' when NODE_ENV is empty", function() {
+      process.env.npm_lifecycle_event = "";
+      process.env.NODE_ENV = "";
+      expect(db.chooseEnv()).to.be("development");
+    });
+  });
+
   describe("chooseEnvConfig()", function() {
     it("reads from the config file specified in SEQUELIZE_DB_CONFIG", function() {
       var dbConfig = db.chooseEnvConfig();
