@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tdumitrescu/sequelize-tools.png?branch=master)](https://travis-ci.org/tdumitrescu/sequelize-tools)
+
 # sequelize-tools
 
 Tools to facilitate choosing and initializing database connections with the Node.js SQL ORM [Sequelize](http://sequelizejs.com/). `sequelize-tools` reads database connection configurations from a Node module which you provide, and offers a simple API for initializing and using global Sequelize connections based on the environment defined in the NODE_ENV environment variable.
