@@ -22,9 +22,9 @@ Install dependencies:
 
     npm install
 
-Create PostgreSQL test database:
+Create PostgreSQL test database (accessed with user "postgres"/"password"):
 
-    psql -c 'create database sequelize_tools_test;' -U user
+    psql -c 'create database sequelize_tools_test;' -U postgres
 
 Run Mocha test script:
 

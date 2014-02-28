@@ -1,7 +1,7 @@
 exports.DBConfig = {
   test: {
     dbName:   "sequelize_tools_test",
-    user:     "user",
+    user:     "postgres",
     password: "password",
     options: {
       dialect: "postgres",
