@@ -12,6 +12,8 @@ Add `sequelize-tools` to dependencies in `package.json`:
 
 ## Usage
 
+### Database connection configuration
+
 Create a connection configuration file (located by default at `server/config/database.[js|coffee]` from your project root). This is a Node module which exports an object `DBConfig`, specifying database names and credentials for different environments:
 
 ```javascript
@@ -67,6 +69,8 @@ exports.DBConfig = {
 
 };
 ```
+
+NB: Never check passwords and other sensitive information into source control. If you leave your database credentials in plain text as in the first example above, then it is recommended that you check in only an "example" file with dummy info (e.g., `config/database.js.example`) and add the real config file to `.gitignore`. For an interesting example of pulling database credentials dynamically from the local system, see "[database.yml should be checked in](http://effectif.com/articles/database-yml-should-be-checked-in)."
 
 An alternate location for the config file can be specified in the environment variable `SEQUELIZE_DB_CONFIG`, which will override the default location, e.g.:
 
