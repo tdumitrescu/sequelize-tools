@@ -12,7 +12,65 @@ Add `sequelize-tools` to dependencies in `package.json`:
 
 ## Usage
 
-Coming soon
+Create a connection configuration file (located by default at `server/config/database.[js|coffee]` from your project root). This is a Node module which exports an object `DBConfig`, specifying database names and credentials for different environments:
+
+```javascript
+exports.DBConfig = {
+
+  development: {
+    dbName:   "my_app_development",
+    user:     "postgres",
+    password: "password",
+    options: {
+      dialect: "postgres",
+      port:    5432
+    }
+  },
+
+  test: {
+    dbName:   "my_app_test",
+    user:     "postgres",
+    password: "password",
+    options: {
+      dialect: "postgres",
+      port:    5432
+    }
+  }
+
+};
+```
+
+Since the config file is a regular Node module, the exported object can be constructed dynamically if needed:
+
+```javascript
+var defaultOptions = {
+      dialect: "postgres",
+      port:    5432
+    },
+    credentials = fetchCredentialsFromSystem();
+
+exports.DBConfig = {
+
+  development: {
+    dbName:   "my_app_development",
+    user:     credentials.development.user,
+    password: credentials.development.password,
+    options:  defaultOptions
+  },
+
+  test: {
+    dbName:   "my_app_test",
+    user:     credentials.test.user,
+    password: credentials.test.password,
+    options:  defaultOptions
+  }
+
+};
+```
+
+An alternate location for the config file can be specified in the environment variable `SEQUELIZE_DB_CONFIG`, which will override the default location, e.g.:
+
+    SEQUELIZE_DB_CONFIG=my_config_dir/database.coffee node my_app
 
 ## Local development and running tests
 
