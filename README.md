@@ -76,6 +76,30 @@ An alternate location for the config file can be specified in the environment va
 
     SEQUELIZE_DB_CONFIG=my_config_dir/database.coffee node my_app
 
+### Database interaction
+
+The `sequelize-tools` module exports a class `db` with which all database connections are accessed. The `db.init()` function will automatically determine the appropriate connection based on the environment (`NODE_ENV`), connect to the DB with the credentials in the config file, and sync the schema for any registered models:
+
+```javascript
+db = require("sequelize-tools").db
+
+db.init(function() {
+  // successfully connected, authenticated, synced
+});
+```
+
+NB: in the `test` environment, `db.init()` will sync the schema with the option `force: true`, which will wipe any existing data in the test database. Calling `db.init()` before each test will ensure a clean database.
+
+The `db.sequelize()` function returns the Sequelize object for the default connection, which can be used to register models and call any other standard Sequelize functions:
+
+```javascript
+db = require("sequelize-tools").db
+
+MyModel = db.sequelize().define("my_model", {title: Sequelize.STRING});
+```
+
+Since `sequelize-tools` lazy-loads and then retains a reference to the base connection, separate modules within your app need not worry about passing around an initialized `sequelize` object in order to communicate with the correct database.
+
 ## Local development and running tests
 
 Clone repo:
