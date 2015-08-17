@@ -7,8 +7,8 @@ node_js:
 
 matrix:
   allow_failures:
-    - "iojs"
-    
+    - node_js: "iojs"
+
 env:
   - NODE_ENV=test
 
